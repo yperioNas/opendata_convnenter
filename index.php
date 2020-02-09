@@ -15,26 +15,26 @@ table, th, td {
  
 $curl = curl_init(); //
 //curl -X GET "" -H "accept: application/json"
-$url="https://ws-ext.it.auth.gr/open/getUnits/academic";
+$url="https://ws-ext.it.auth.gr/open/getUnits/academic";      //εκει που τραβαμε τα δεδομενα το site
 //https://ws-ext.it.auth.gr/open/getDiningModes
 //https://ws-ext.it.auth.gr/open/getUnitsPeople
 //https://ws-ext.it.auth.gr/open/getDeptStudiesProg/csd
 //https://ws-ext.it.auth.gr/open/getUnits/academic
 
 
-curl_setopt($curl,CURLOPT_URL,$url);
+curl_setopt($curl,CURLOPT_URL,$url);          
 curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
 curl_setopt($curl,CURLOPT_HEADER,0);
 $dataJSON = curl_exec($curl);
 
 if($dataJSON == FALSE){
-die("cURL Error: " . curl_error($curl));
+die("cURL Error: " . curl_error($curl));             //αμα υπαρχει καποιο προβλημα τοτε θα μας το εμφανισει
 }
 
 curl_close($curl);
 
 
-$jsonIterator = new RecursiveIteratorIterator(
+$jsonIterator = new RecursiveIteratorIterator(                            //αναδρομικη συναρτηση για να δουμε ολα τα δεδομενα json
     new RecursiveArrayIterator(json_decode($dataJSON, TRUE)),
     RecursiveIteratorIterator::SELF_FIRST);
 
@@ -45,7 +45,7 @@ $w = 0;
 $ww=0;
 $col=1;
 foreach ($jsonIterator as $key => $val) {
-	$d = $jsonIterator->getDepth();
+	$d = $jsonIterator->getDepth();                         //με getDepth βλεπουμε το βαθος δεδομενου που βρισκεται
 if($w==0){
 	 if(is_array($val)) {
        //echo "$key   \n";              //take units
