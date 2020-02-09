@@ -84,7 +84,7 @@ foreach ($jsonIterator as $key => $val) {
 		
 		
 if(!($key==="units")){
-if(is_array($val) && $d >= 2){
+if(is_array($val) && $d >= 2){                                   //αμα υπαρχει πινακας μεσα στον πινακα τοτε περναει την if αυτη
 	
 	
 	
@@ -99,7 +99,7 @@ if(is_array($val) && $d >= 2){
 			
 }elseif($coun > 0){
    
-            $coo=$val."<br>".$coo;
+            $coo=$val."<br>".$coo;                             //τα στοιχεια που βρισκονται σε πινακα μεσα σε πινακα αποθηκευονται σε μια cell
 	     	$coun=$coun-1;
            // echo "leitourgia :: 2 ";
 			//echo "$key =>$val \n";
@@ -113,7 +113,7 @@ if(is_array($val) && $d >= 2){
 	}
   
 
-}elseif(is_array($val)){
+}elseif(is_array($val)){                                                           
 	 //echo "leitourgia :: 3  ";
 			//echo "$key =>$val \n";
 		//	echo "<br>";
@@ -137,7 +137,7 @@ if(is_array($val) && $d >= 2){
 }
 }
 
-echo "<table id='display'>";
+echo "<table id='display'>";                              //φτιαχνουμε το table σε γραμμες και στηλες
 for($r=0;$r<=$row;$r++){
 	echo"<tr>";
 for($c=0;$c<$col;$c++){
